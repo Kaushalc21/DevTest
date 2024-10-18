@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary Report</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9; /* Light background color for contrast */
+        }
+        .container {
+            text-align: center; /* Center text */
+            padding: 20px; /* Padding around the content */
+            background-color: #fff; /* White background for the container */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        h1 {
+            font-size: 2.5em; /* Bigger font size for the heading */
+            margin-bottom: 20px; /* Space below the heading */
+        }
+        table {
+            width: 100%; /* Full width for the table */
+            border-collapse: collapse; /* Remove space between borders */
+            margin-top: 20px; /* Space above the table */
+        }
+        th, td {
+            padding: 15px; /* Padding inside table cells */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid #ddd; /* Border between rows */
+        }
+        th {
+            background-color: #f2f2f2; /* Light gray background for header */
+        }
+        a {
+            display: inline-block; /* Make the link a block for better spacing */
+            margin-top: 20px; /* Space above the link */
+            text-decoration: none; /* Remove underline */
+            color: #007BFF; /* Link color */
+            font-weight: bold; /* Bold link */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Summary Report</h1>
+        <table>
+            <tr>
+                <th>Column Name</th>
+                <th>Count</th>
+            </tr>
+            {% for key, value in summary.items %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value.count }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="{% url 'upload' %}">Upload another file</a>
+    </div>
+</body>
+</html>
